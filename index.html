@@ -22,21 +22,22 @@
         <div class="outline col">
             <div class=" outline row">
                 <h4>Roast</h4>
-                <select id="mySelect" onchange="renderCoffee()">
-                    <option value="All">All</option>
-                    <option value="Light">Light</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Dark">Dark</option>
+                <select id="roast-selection" onchange="updateCoffees()">
+                    <option value="all">All</option>
+                    <option value="light">Light</option>
+                    <option value="medium">Medium</option>
+                    <option value="dark">Dark</option>
                 </select>
 
                 <form>
                     <div class="mb-3">
                         <label for="roast-selection" class="form-label">Coffee Name</label>
-                        <input type="email" class="form-control" id="roast-selection" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" id="text">
+
                     </div>
-                    <button type="submit" class="btn w-100 btn-primary">Submit</button>
                 </form>
             </div>
+            <!--second selector area-->
             <div class="outline row">
                 <div class="card border-0">
                     <div class="card-body">
@@ -57,7 +58,7 @@
                 <form>
                     <div class="mb-3">
                         <!--still need proper id-->
-                        <label for="notsureyet" class="form-label">Coffee Name</label>
+                        <label for="roast-selection" class="form-label">Coffee Name</label>
                         <input type="email" class="form-control" id="notsureyet" aria-describedby="emailHelp">
                     </div>
                     <button type="submit" class="btn w-100 btn-primary">Submit</button>
