@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row d-flex align-items-top justify-content-center">
         <!--left side col-->
-        <div class="  col">
+        <div class="col">
             <div id="coffeeBox" class="row d-flex align-items-top justify-content-center">
                 <div id="coffees" class="row row-cols-2">
                 </div>
@@ -21,8 +21,8 @@
         <!--right side col-->
         <div class="col">
             <div class="row">
-                <h4>Roast</h4>
-                <select id="roast-selection" onchange="updateCoffees()">
+                <h4>Roast Selection</h4>
+                <select id="roast-selection">
                     <option value="all">All</option>
                     <option value="light">Light</option>
                     <option value="medium">Medium</option>
@@ -32,37 +32,29 @@
                 <form>
                     <div class="mb-3">
                         <label for="roast-selection" class="form-label">Coffee Name</label>
-                        <input type="text" class="form-control" id="text" placeholder="Pick a roast">
+                        <input type="text" class="form-control" id="text" placeholder="Select your coffee">
 
                     </div>
                 </form>
             </div>
             <!--second selector area-->
             <div class="row">
-                <div class="card border-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Roast</h5>
-                        <div class="dropdown">
-                            <button class="btn w-100 d-flex justify-content-start btn-transparent dropdown-toggle"
-                                    type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
-                                    aria-expanded="false">All
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <li><a class="dropdown-item" href="#">Light</a></li>
-                                <li><a class="dropdown-item" href="#">Medium</a></li>
-                                <li><a class="dropdown-item" href="#">Dark</a></li>
-                            </ul>
+                <div class="row">
+                    <h4>Roast Type</h4>
+                    <select id="roast-selection-add">
+                        <option value="light">Light</option>
+                        <option value="medium">Medium</option>
+                        <option value="dark">Dark</option>
+                    </select>
+
+                    <form>
+                        <div class="mb-3">
+                            <label for="text-add" class="form-label">Coffee Name</label>
+                            <input type="text" class="form-control" id="text-add" placeholder="Add a new coffee">
+                            <input type="submit" id="submit" class="btn w-100 btn-primary">
                         </div>
-                    </div>
+                    </form>
                 </div>
-                <form>
-                    <div class="mb-3">
-                        <!--still need proper id-->
-                        <label for="roast-selection" class="form-label">Coffee Name</label>
-                        <input type="email" class="form-control" id="notsureyet" aria-describedby="emailHelp">
-                    </div>
-                    <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                </form>
             </div>
         </div>
     </div>

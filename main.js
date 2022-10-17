@@ -51,15 +51,19 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-document.getElementById("roast-selection").addEventListener('change', updateCoffees);
+roastSelection.addEventListener('change', updateCoffees);
 document.getElementById("text").addEventListener('keyup',updateCoffees);
-
-
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+submitButton.addEventListener('click', coffeeInput);
 
 //function for coffee selection based on input
-function coffeeInput() {
-
+function coffeeInput(e) {
+    e.preventDefault();
+    var id = coffees.length + 1;
+    var roast = document.getElementById('roast-selection-add').value;
+    var name = document.getElementById('text-add').value;
+    var newcoffee ={id,name,roast};
+    coffees.push(newcoffee);
+    updateCoffees();
 }
