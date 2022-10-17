@@ -2,7 +2,6 @@
 
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
-    // html += '<div>' + coffee.id + '</div>';
     html += '<div class="col"><h3>' + coffee.name + '</h3></div>';
     html += '<div class="col"><p>' + coffee.roast + '</p></div>';
     html += '</div>';
@@ -47,6 +46,7 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
+coffees.reverse()
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
