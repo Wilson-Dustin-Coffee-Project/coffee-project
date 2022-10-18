@@ -1,14 +1,14 @@
 "use strict"
 
+//this function is for displaying the coffees array
 function renderCoffee(coffee) {
     var html = '<div class="coffee rounded-3">';
     html += '<div class="col d-flex justify-contnet-center align-items-top"><a href="#"><h3>' + coffee.name + '</h3><p>' + coffee.roast + '</p></a></div>';
-    // html += '<div class="col"><p>' + coffee.roast + '</p></div>';
     html += '</div>';
-
     return html;
 }
 
+//this function helps oop through array for sorting
 function renderCoffees(coffees) {
     var html = '';
     for (var i = coffees.length - 1; i >= 0; i--) {
@@ -17,6 +17,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
+//this function allows gives functionality to the select tabs and the search inputs sorting the array
 function updateCoffees() {
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
@@ -29,8 +30,7 @@ function updateCoffees() {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+//  the coffee array from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -48,25 +48,28 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 coffees.reverse();
-if(localStorage.getItem('newCoffeeNames') !== null){
-    coffees =JSON.parse(localStorage.getItem('newCoffeeNames'));
+
+//this function allows the storage of our added coffees
+if (localStorage.getItem('newCoffeeNames') !== null) {
+    coffees = JSON.parse(localStorage.getItem('newCoffeeNames'));
 }
+
+//variables for most of the listeners
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 roastSelection.addEventListener('change', updateCoffees);
-document.getElementById("text").addEventListener('keyup',updateCoffees);
+document.getElementById("text").addEventListener('keyup', updateCoffees);
 tbody.innerHTML = renderCoffees(coffees);
-
 submitButton.addEventListener('click', coffeeInput);
 
-//function for coffee selection based on input
+//function for adding coffees based on input
 function coffeeInput(e) {
     e.preventDefault();
     var id = coffees.length + 1;
     var roast = document.getElementById('roast-selection-add').value;
     var name = document.getElementById('text-add').value;
-    var newCoffee ={id,name,roast};
+    var newCoffee = {id, name, roast};
     coffees.push(newCoffee);
     updateCoffees();
 
@@ -74,9 +77,10 @@ function coffeeInput(e) {
     localStorage.setItem("newCoffeeNames", JSON.stringify(newCoffeeNames));
 }
 
-// window.localStorage.clear();
+//this is for the deletion of the local storage via a button
 document.getElementById('clear').addEventListener("click", clearStorage)
-function clearStorage(){
+
+function clearStorage() {
     localStorage.removeItem("newCoffeeNames");
     return window.localStorage.clear();
 }
