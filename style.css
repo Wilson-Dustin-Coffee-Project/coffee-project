@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Montserrat&family=Noto+Sans+Warang+Citi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Lobster&family=Montserrat&family=Noto+Sans+Warang+Citi&display=swap');
 
 body {
@@ -12,5 +11,9 @@ a {
     color: antiquewhite;
 }
 a:hover{
-    color: saddlebrown;
+    color: #000000;
+
+}
+.coffee:hover{
+    background-color: #7F8C8D  ;
 }
