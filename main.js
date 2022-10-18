@@ -47,6 +47,9 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 coffees.reverse()
+if(localStorage.getItem('newCoffeeNames') !== null){
+    coffees =JSON.parse(localStorage.getItem('newCoffeeNames'));
+}
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
@@ -66,4 +69,14 @@ function coffeeInput(e) {
     var newcoffee ={id,name,roast};
     coffees.push(newcoffee);
     updateCoffees();
+
+    var newCoffeeNames = coffees;
+    localStorage.setItem("newCoffeeNames", JSON.stringify(newCoffeeNames));
+}
+
+// window.localStorage.clear();
+document.getElementById('clear').addEventListener("click", clearStorage)
+function clearStorage(){
+    localStorage.removeItem("newCoffeeNames");
+    return window.localStorage.clear();
 }
